@@ -1,3 +1,4 @@
+# image version 0.1
 IMAGE_VERSION=0.1
 REPO=kuttimani
 IMAGE_NAME=flaskdemo

@@ -5,7 +5,9 @@ app = Flask(__name__)
 
 @app.route("/")
 def redis():
-    version = os.environ['VERSION']
+    #version = os.environ['VERSION']
+    with open('version.txt', 'r') as content_file:
+        version = content_file.read()
     r = Redis(host='redis-service', port=6379)
     cntr = r.incr("counter")
     return "version %s : Flask app for hack day - counter %d " % (version, cntr)

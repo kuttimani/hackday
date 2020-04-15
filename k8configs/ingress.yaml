@@ -3,15 +3,12 @@ kind: Ingress
 metadata:
   name: hack-ingress
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: "/jenkins"
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"
-    nginx.ingress.kubernetes.io/configuration-snippet: |
-      rewrite ^(/jenkins)$ http://$best_http_host$1/ permanent;
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
   - http:
       paths:
-      - path: "/jenkins"
+      - path: "/flask"
         backend:
-          serviceName: jeknins-service
+          serviceName: flask-service
           servicePort: 8000
